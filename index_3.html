@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio 7 Playbook</title>
+<meta name="description" content="A step-by-step guide to starting and running a one-person website business for local small businesses.">
+<meta name="color-scheme" content="dark light">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('studio7-theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
+<style>
+/* ---------- Design tokens (Frontier Storyboard v1.0.0, proposed) ---------- */
+:root {
+  --fsd-color-canvas: #090D16;
+  --fsd-color-surface: #101623;
+  --fsd-color-elevated: #17233A;
+  --fsd-color-border-subtle: #2B3954;
+  --fsd-color-border-control: #7085A3;
+  --fsd-color-text: #F4F7FC;
+  --fsd-color-text-muted: #B7C3D9;
+  --fsd-color-text-subtle: #92A4C0;
+  --fsd-color-ink: #07111F;
+  --fsd-color-cyan: #65D9F5;
+  --fsd-color-blue: #3987EB;
+  --fsd-color-blue-strong: #2563B6;
+  --fsd-color-sky: #91C5FF;
+  --fsd-color-teal: #62C9B6;
+  --fsd-color-lime: #9CCD58;
+  --fsd-color-amber: #F0B34B;
+  --fsd-color-violet: #B39AF5;
+  --fsd-color-danger: #FF929D;
+  --fsd-color-white: #FFFFFF;
+  --fsd-color-print-ink: #172033;
+  --fsd-color-print-muted: #46536A;
+  --fsd-color-print-border: #CCD3DF;
+  --fsd-color-shadow: #03060D;
+  --fsd-space-4: 4px;
+  --fsd-space-8: 8px;
+  --fsd-space-12: 12px;
+  --fsd-space-16: 16px;
+  --fsd-space-24: 24px;
+  --fsd-space-32: 32px;
+  --fsd-space-48: 48px;
+  --fsd-space-64: 64px;
+  --fsd-space-96: 96px;
+  --fsd-radius-control: 8px;
+  --fsd-radius-card: 12px;
+  --fsd-radius-scene: 20px;
+  --fsd-radius-pill: 9999px;
+  --fsd-type-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --fsd-type-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --fsd-type-display: 64px;
+  --fsd-type-title: 40px;
+  --fsd-type-heading: 28px;
+  --fsd-type-subheading: 20px;
+  --fsd-type-body: 16px;
+  --fsd-type-label: 14px;
+  --fsd-type-caption: 12px;
+  --fsd-type-leading-display: 1.08;
+  --fsd-type-leading-heading: 1.2;
+  --fsd-type-leading-body: 1.5;
+  --fsd-motion-fast: 120ms;
+  --fsd-motion-base: 180ms;
+  --fsd-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --fsd-layout-wide: 1120px;
+  --fsd-layout-target: 44px;
+  --fsd-effect-shadow-card: 0 16px 48px rgb(3 6 13 / 0.32);
+  --fsd-effect-gradient-nav: linear-gradient(110deg, var(--fsd-color-cyan), var(--fsd-color-blue));
+  --fsd-effect-gradient-story: linear-gradient(110deg, var(--fsd-color-teal), var(--fsd-color-lime));
+}
+
+/* ---------- Theme layer ----------
+   Dark uses the system's documented values.
+   Light is derived here from the system's print and strong-blue tokens,
+   because the system does not define a production light theme. */
+:root {
+  color-scheme: dark;
+  --bg: var(--fsd-color-canvas);
+  --surface: var(--fsd-color-surface);
+  --elevated: var(--fsd-color-elevated);
+  --line: var(--fsd-color-border-subtle);
+  --line-strong: var(--fsd-color-border-control);
+  --text: var(--fsd-color-text);
+  --muted: var(--fsd-color-text-muted);
+  --accent: var(--fsd-color-cyan);
+  --accent-text: var(--fsd-color-ink);
+  --accent-hover: var(--fsd-color-sky);
+  --link: var(--fsd-color-cyan);
+  --focus: var(--fsd-color-cyan);
+  --eyebrow: var(--fsd-color-sky);
+  --shadow: var(--fsd-effect-shadow-card);
+  --warn-bg: var(--fsd-color-elevated);
+  --warn-line: var(--fsd-color-amber);
+  --bar: var(--fsd-effect-gradient-story);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: #F4F7FC;
+    --surface: #FFFFFF;
+    --elevated: #E9EFF9;
+    --line: var(--fsd-color-print-border);
+    --line-strong: var(--fsd-color-border-control);
+    --text: var(--fsd-color-print-ink);
+    --muted: var(--fsd-color-print-muted);
+    --accent: var(--fsd-color-blue-strong);
+    --accent-text: var(--fsd-color-white);
+    --accent-hover: #1E4F96;
+    --link: var(--fsd-color-blue-strong);
+    --focus: var(--fsd-color-blue-strong);
+    --eyebrow: var(--fsd-color-blue-strong);
+    --shadow: 0 12px 32px rgb(23 32 51 / 0.10);
+    --warn-bg: #FFF6E0;
+    --bar: linear-gradient(110deg, var(--fsd-color-blue-strong), var(--fsd-color-blue));
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #F4F7FC;
+  --surface: #FFFFFF;
+  --elevated: #E9EFF9;
+  --line: var(--fsd-color-print-border);
+  --line-strong: var(--fsd-color-border-control);
+  --text: var(--fsd-color-print-ink);
+  --muted: var(--fsd-color-print-muted);
+  --accent: var(--fsd-color-blue-strong);
+  --accent-text: var(--fsd-color-white);
+  --accent-hover: #1E4F96;
+  --link: var(--fsd-color-blue-strong);
+  --focus: var(--fsd-color-blue-strong);
+  --eyebrow: var(--fsd-color-blue-strong);
+  --shadow: 0 12px 32px rgb(23 32 51 / 0.10);
+  --warn-bg: #FFF6E0;
+  --bar: linear-gradient(110deg, var(--fsd-color-blue-strong), var(--fsd-color-blue));
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fsd-type-family);
+  font-size: var(--fsd-type-body);
+  line-height: var(--fsd-type-leading-body);
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--link); text-underline-offset: 0.2em; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.wrap { max-width: var(--fsd-layout-wide); margin: 0 auto; padding-inline: var(--fsd-space-16); }
+p { margin: 0 0 var(--fsd-space-12); }
+ul, ol { margin: 0; padding-left: 20px; }
+li { margin-bottom: 6px; }
+
+/* ---------- Top bar ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.bar .wrap { display: flex; gap: var(--fsd-space-8); align-items: center; padding-block: var(--fsd-space-8); }
+.chapters {
+  display: flex; gap: 4px; padding: 4px; flex: 1 1 auto; min-width: 0;
+  overflow-x: auto; scrollbar-width: none;
+  border-radius: var(--fsd-radius-card);
+  background: var(--fsd-effect-gradient-nav);
+}
+.chapters::-webkit-scrollbar { display: none; }
+.chapters a {
+  flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
+  min-block-size: var(--fsd-layout-target); padding-inline: 14px;
+  border-radius: var(--fsd-radius-control);
+  color: var(--fsd-color-ink); font-size: var(--fsd-type-label); font-weight: 600; text-decoration: none;
+  transition: background-color var(--fsd-motion-fast) var(--fsd-motion-ease);
+}
+.chapters a:hover { background: var(--fsd-color-sky); }
+.chapters a[aria-current="step"] { background: var(--fsd-color-white); box-shadow: 0 2px 8px rgb(3 6 13 / 0.2); }
+.chapters a:focus-visible { outline-color: var(--fsd-color-ink); outline-offset: -3px; }
+@media (max-width: 767px) { .chapters { border-radius: var(--fsd-radius-control); } }
+.chapters .sm { display: none; }
+@media (max-width: 560px) {
+  .chapters .lg { display: none; }
+  .chapters .sm { display: inline; }
+  .chapters a { padding-inline: 10px; }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-block-size: var(--fsd-layout-target); padding: 10px 18px;
+  border: 1px solid var(--accent); border-radius: var(--fsd-radius-control);
+  background: var(--accent); color: var(--accent-text);
+  font: 600 var(--fsd-type-label)/1.4 var(--fsd-type-family); cursor: pointer;
+  transition: background-color var(--fsd-motion-fast) var(--fsd-motion-ease), border-color var(--fsd-motion-fast) var(--fsd-motion-ease);
+}
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn--secondary { background: var(--surface); color: var(--text); border-color: var(--line-strong); }
+.btn--secondary:hover { background: var(--elevated); border-color: var(--focus); }
+.btn--theme { flex: 0 0 auto; white-space: nowrap; }
+
+/* ---------- Hero ---------- */
+.hero { padding: var(--fsd-space-64) 0 var(--fsd-space-16); }
+.eyebrow {
+  margin: 0 0 var(--fsd-space-8);
+  color: var(--eyebrow); font-size: var(--fsd-type-caption); font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+h1 {
+  margin: 0 0 var(--fsd-space-16);
+  font-size: clamp(40px, 8vw, var(--fsd-type-display)); font-weight: 700;
+  line-height: var(--fsd-type-leading-display); letter-spacing: -0.02em;
+}
+.hero .rule-bar { display: block; inline-size: 96px; block-size: 4px; border-radius: var(--fsd-radius-pill); background: var(--bar); margin-bottom: var(--fsd-space-16); }
+.lead { max-inline-size: 34em; margin: 0; color: var(--muted); font-size: 19px; }
+
+.route { display: grid; grid-template-columns: 1fr; gap: var(--fsd-space-12); margin-top: var(--fsd-space-32); }
+@media (min-width: 760px) { .route { grid-template-columns: repeat(3, 1fr); } }
+.route a {
+  display: block; text-decoration: none; color: var(--text);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--fsd-radius-card);
+  padding: var(--fsd-space-16); box-shadow: var(--shadow);
+  transition: border-color var(--fsd-motion-fast) var(--fsd-motion-ease);
+}
+.route a:hover { border-color: var(--accent); }
+.route .k { display: block; color: var(--eyebrow); font-size: var(--fsd-type-caption); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.route b { display: block; font-size: var(--fsd-type-subheading); line-height: 1.25; margin: 2px 0 4px; }
+.route .d { display: block; color: var(--muted); font-size: var(--fsd-type-label); }
+.order { margin-top: var(--fsd-space-16); }
+
+/* ---------- Sections ---------- */
+section { padding: var(--fsd-space-48) 0 var(--fsd-space-8); scroll-margin-top: 72px; }
+h2 { margin: 0 0 var(--fsd-space-4); font-size: var(--fsd-type-heading); font-weight: 700; line-height: var(--fsd-type-leading-heading); }
+.part h2 { font-size: var(--fsd-type-title); letter-spacing: -0.01em; }
+.sub { margin: 0 0 var(--fsd-space-16); color: var(--muted); }
+h3 { margin: 0 0 var(--fsd-space-8); font-size: var(--fsd-type-subheading); font-weight: 600; line-height: var(--fsd-type-leading-heading); }
+.subhead { margin: var(--fsd-space-32) 0 var(--fsd-space-8); font-size: var(--fsd-type-heading); font-weight: 700; line-height: var(--fsd-type-leading-heading); scroll-margin-top: 72px; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--fsd-radius-card); padding: var(--fsd-space-24);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 767px) { .card { padding: var(--fsd-space-16); } }
+
+.jump { display: flex; flex-wrap: wrap; gap: var(--fsd-space-8); margin: 0 0 var(--fsd-space-16); }
+.jump a {
+  display: inline-flex; align-items: center; min-block-size: var(--fsd-layout-target); padding: 4px 14px;
+  background: var(--elevated); border: 1px solid var(--line); border-radius: var(--fsd-radius-pill);
+  color: var(--text); font-size: var(--fsd-type-label); text-decoration: none;
+}
+.jump a:hover { border-color: var(--focus); }
+
+/* rules */
+.rules { display: grid; grid-template-columns: 1fr; gap: var(--fsd-space-12); counter-reset: rule; }
+.rule {
+  display: flex; gap: var(--fsd-space-16); align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--fsd-radius-card);
+  padding: var(--fsd-space-16); font-weight: 600; box-shadow: var(--shadow);
+}
+.rule::before {
+  counter-increment: rule; content: counter(rule);
+  flex: 0 0 auto; inline-size: 32px; block-size: 32px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--accent-text); font-size: var(--fsd-type-label); font-weight: 700;
+}
+@media (min-width: 700px) { .rules { grid-template-columns: 1fr 1fr; } }
+
+/* details */
+.toolbar { display: flex; justify-content: flex-end; margin-bottom: var(--fsd-space-12); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--fsd-space-12); }
+.steps > li { margin: 0; }
+details {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--fsd-radius-card);
+}
+details[open] { border-color: var(--accent); }
+summary {
+  list-style: none; cursor: pointer; display: flex; gap: var(--fsd-space-16); align-items: center;
+  min-block-size: var(--fsd-layout-target); padding: 14px var(--fsd-space-16);
+  border-radius: var(--fsd-radius-card);
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; margin-left: auto; font-size: 24px; line-height: 1; color: var(--muted); }
+details[open] > summary::after { content: "\2212"; }
+.num {
+  flex: 0 0 auto; min-inline-size: 40px; block-size: 40px; padding-inline: 8px; border-radius: var(--fsd-radius-control);
+  display: grid; place-items: center;
+  background: var(--elevated); color: var(--accent); font-weight: 700; font-size: 18px;
+}
+.s-title { display: flex; flex-direction: column; }
+.s-title b { font-size: 18px; line-height: 1.25; font-weight: 600; }
+.s-line { color: var(--muted); font-size: var(--fsd-type-label); line-height: 1.35; }
+.body { padding: 2px var(--fsd-space-16) var(--fsd-space-16) 76px; max-inline-size: 780px; }
+.body.wide { padding-left: var(--fsd-space-16); max-inline-size: none; }
+.body ul, .body ol { margin-bottom: 10px; }
+.body h4 { margin: var(--fsd-space-16) 0 var(--fsd-space-8); font-size: var(--fsd-type-body); font-weight: 700; }
+@media (max-width: 560px) { .body { padding-left: var(--fsd-space-16); } }
+
+.note {
+  margin-top: var(--fsd-space-12); padding: 10px 14px;
+  background: var(--warn-bg); border-left: 4px solid var(--warn-line);
+  border-radius: var(--fsd-radius-control); color: var(--text);
+}
+.note a { color: var(--link); }
+
+/* pricing */
+.plans { display: grid; grid-template-columns: 1fr; gap: var(--fsd-space-16); }
+@media (min-width: 760px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+.plan { display: flex; flex-direction: column; }
+.plan.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow); }
+.plan .name { color: var(--eyebrow); font-size: var(--fsd-type-caption); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.plan .price { margin: var(--fsd-space-4) 0 var(--fsd-space-4); font-size: var(--fsd-type-title); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+.plan .from { display: block; color: var(--muted); font-size: var(--fsd-type-label); font-weight: 400; letter-spacing: 0; }
+.plan ul { list-style: none; padding: 0; margin-top: var(--fsd-space-12); }
+.plan li { margin: 0; padding: 10px 0; border-top: 1px solid var(--line); }
+.plan li:first-child { border-top: 0; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; margin-bottom: 4px;
+  background: var(--elevated); border: 1px solid var(--line); border-radius: var(--fsd-radius-pill);
+  color: var(--text); font-size: var(--fsd-type-label);
+}
+.chip.no { border-color: var(--fsd-color-amber); }
+.chip.yes { border-color: var(--accent); }
+
+/* demo cards */
+.demos { display: grid; grid-template-columns: 1fr; gap: var(--fsd-space-12); margin: var(--fsd-space-8) 0 var(--fsd-space-16); }
+@media (min-width: 760px) { .demos { grid-template-columns: repeat(3, 1fr); } }
+.demo { background: var(--elevated); border: 1px solid var(--line); border-radius: var(--fsd-radius-card); padding: var(--fsd-space-16); }
+.demo .tier { color: var(--eyebrow); font-size: var(--fsd-type-caption); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.demo b { display: block; font-size: 18px; margin: 2px 0 6px; }
+.demo p { margin: 0; color: var(--muted); font-size: var(--fsd-type-label); }
+
+/* code boxes */
+.codebox { position: relative; margin: var(--fsd-space-8) 0 var(--fsd-space-12); }
+pre {
+  margin: 0; white-space: pre-wrap; word-wrap: break-word;
+  background: var(--elevated); color: var(--text);
+  border: 1px solid var(--line); border-radius: var(--fsd-radius-card);
+  padding: var(--fsd-space-16); padding-top: 64px;
+  font: 14px/1.55 var(--fsd-type-mono);
+}
+.codebox .btn { position: absolute; top: 10px; right: 10px; }
+.qa { display: grid; gap: var(--fsd-space-8); margin-top: var(--fsd-space-16); }
+.qa summary { padding: 10px var(--fsd-space-16); font-weight: 600; }
+.qa .body { padding: 0 var(--fsd-space-16) 14px; }
+.tpl { display: grid; gap: var(--fsd-space-12); margin-top: var(--fsd-space-12); }
+.tpl details { background: var(--bg); }
+.tpl .body { padding: 0 var(--fsd-space-16) var(--fsd-space-16); max-inline-size: none; }
+
+/* checklists */
+.lists { display: grid; grid-template-columns: 1fr; gap: var(--fsd-space-16); }
+@media (min-width: 760px) { .lists { grid-template-columns: 1fr 1fr; } }
+.gate { margin-top: var(--fsd-space-24); }
+.progress { block-size: 8px; background: var(--elevated); border: 1px solid var(--line); border-radius: var(--fsd-radius-pill); overflow: hidden; margin: var(--fsd-space-8) 0 var(--fsd-space-4); }
+.progress > i { display: block; block-size: 100%; inline-size: 0; background: var(--bar); transition: inline-size var(--fsd-motion-base) var(--fsd-motion-ease); }
+.count { display: flex; justify-content: space-between; align-items: center; gap: var(--fsd-space-8); color: var(--muted); font-size: var(--fsd-type-label); }
+.checks { list-style: none; padding: 0; margin: var(--fsd-space-8) 0 0; }
+.checks li { margin: 0; border-top: 1px solid var(--line); }
+.checks li:first-child { border-top: 0; }
+.checks label { display: flex; gap: var(--fsd-space-12); align-items: flex-start; min-block-size: var(--fsd-layout-target); padding: 10px 0; cursor: pointer; }
+.checks input { inline-size: 24px; block-size: 24px; margin: 0; flex: 0 0 auto; accent-color: var(--accent); }
+.checks input:checked + span { color: var(--muted); text-decoration: line-through; }
+
+.two { display: grid; grid-template-columns: 1fr; gap: var(--fsd-space-16); }
+@media (min-width: 760px) { .two { grid-template-columns: 1fr 1fr; } }
+.card ul li:last-child { margin-bottom: 0; }
+
+footer { padding: var(--fsd-space-48) 0 var(--fsd-space-64); color: var(--muted); font-size: var(--fsd-type-label); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media (forced-colors: active) {
+  .btn, .card, .rule, details, .chip, .chapters, .route a, .demo { border: 1px solid ButtonText; }
+  .chapters a[aria-current] { outline: 2px solid Highlight; }
+  :focus-visible { outline-color: Highlight; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <nav class="chapters" aria-label="Parts">
+      <a href="#part1">1<span class="lg">. Before you start</span><span class="sm"> Before</span></a>
+      <a href="#part2">2<span class="lg">. Set up your shop</span><span class="sm"> Set up</span></a>
+      <a href="#part3">3<span class="lg">. Run the business</span><span class="sm"> Run</span></a>
+    </nav>
+    <button type="button" class="btn btn--secondary btn--theme" id="themeToggle">Light theme</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Studio 7 playbook</p>
+    <h1>Build it. Hand it over. They run it.</h1>
+    <span class="rule-bar" aria-hidden="true"></span>
+    <p class="lead">You build websites for local businesses that don't have one. The goal is to finish each job cleanly so the owner can manage the site without you. Three parts, in order.</p>
+    <div class="route">
+      <a href="#part1"><span class="k">Part 1</span><b>Before you talk to anyone</b><span class="d">Define it, price it, get paid, set up email, write your process.</span></a>
+      <a href="#part2"><span class="k">Part 2</span><b>Set up your shop</b><span class="d">Build your site and three demos, pick your URL, launch.</span></a>
+      <a href="#part3"><span class="k">Part 3</span><b>Run the business</b><span class="d">Find customers, pitch, build, hand over.</span></a>
+    </div>
+    <div class="note order">Don't contact a customer until the ready check at the end of Part 2 is fully ticked.</div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- ================= PART 1 ================= -->
+<section id="part1" class="part">
+  <p class="eyebrow">Part 1</p>
+  <h2>Before you talk to anyone</h2>
+  <p class="sub">Settle all of this first. Plan on about a week.</p>
+  <div class="jump" aria-label="In this part">
+    <a href="#p1-list">Six sections</a>
+    <a href="#p1-rules">Your rules</a>
+    <a href="#p1-ready">Done check</a>
+  </div>
+  <div class="toolbar"><button type="button" class="btn btn--secondary" data-toggle="p1-list">Open all</button></div>
+
+  <ol class="steps" id="p1-list">
+
+    <li><details>
+      <summary><span class="num">1.1</span><span class="s-title"><b>Define Studio 7</b><span class="s-line">One page. Say it in 20 seconds.</span></span></summary>
+      <div class="body">
+        <ul>
+          <li>Who: local small businesses with no website. Start with restaurants and food trucks.</li>
+          <li>Problem: customers can't find hours, a menu or a location online, so they go somewhere else.</li>
+          <li>Promise: a real website, built fast, handed over completely, that you can update yourself.</li>
+          <li>You don't do: ongoing maintenance, logos, photography, online stores, payment systems.</li>
+        </ul>
+        <p>Write it in your own words and make it the first page of your Studio 7 folder. Restaurants and food trucks fit well because a menu in a Google Sheet and a schedule in Google Calendar are what the Premium package is made for.</p>
+        <p>Saying no is easier when it's written down. Owners will ask for logos, photos and "one quick tweak next month."</p>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">1.2</span><span class="s-title"><b>Packages and prices</b><span class="s-line">Three packages. Prices written down before any work.</span></span></summary>
+      <div class="body wide">
+        <div class="plans">
+          <div class="card plan">
+            <div class="name">Starter</div>
+            <div class="price">$500</div>
+            <ul>
+              <li>1 page</li>
+              <li>Hours, contact, map, a few photos</li>
+              <li>1 revision round</li>
+              <li>One-page quick sheet</li>
+              <li><span class="chip no">Owner can't edit it</span><br>Changes are quoted</li>
+            </ul>
+          </div>
+          <div class="card plan">
+            <div class="name">Pro</div>
+            <div class="price">$750</div>
+            <ul>
+              <li>Up to 5 pages</li>
+              <li>Adds services, about, gallery, search basics</li>
+              <li>2 revision rounds</li>
+              <li>Two-page guide</li>
+              <li><span class="chip no">Owner can't edit it</span><br>Changes are quoted</li>
+            </ul>
+          </div>
+          <div class="card plan featured">
+            <div class="name">Premium</div>
+            <div class="price"><span class="from">Starting at</span>$1,000</div>
+            <ul>
+              <li>Up to 5 pages</li>
+              <li>Live content from one Google Sheet or Calendar</li>
+              <li>2 revision rounds</li>
+              <li>Full guide with screenshots</li>
+              <li><span class="chip yes">Owner edits it</span><br>Through the Sheet or Calendar</li>
+            </ul>
+          </div>
+        </div>
+        <h4>Pricing rules</h4>
+        <ul>
+          <li>50% deposit first. The other 50% before you hand over.</li>
+          <li>The owner owns the site only after the final payment clears.</li>
+          <li>A revision round is one combined list of changes, sent once.</li>
+          <li>Extra rounds, extra pages or a second connected source are quoted before you do the work.</li>
+          <li>Don't discount. If the price is too high, offer the smaller package.</li>
+          <li>The owner buys their own domain and hosting. A domain is about $10 to $20 a year (approximate). A small site can often be hosted free.</li>
+        </ul>
+        <div class="note">Only Premium is truly hands-off. Starter and Pro sites are finished, but changing a phone number means someone edits the page. The owner's guide says so, and changes are ordered from you and quoted first.</div>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">1.3</span><span class="s-title"><b>How you get paid</b><span class="s-line">Your dad signs. The money goes to his account.</span></span></summary>
+      <div class="body">
+        <h4>Why a parent signs</h4>
+        <p>In most places a contract with someone under 18 can be cancelled by the minor. A customer could walk away and you'd have little recourse. Payment services also tend to need an adult owner. Stripe, for example, says that under 18 a legal guardian must own the account before it can accept charges (<a href="https://support.stripe.com/questions/age-requirement-to-create-a-stripe-account" target="_blank" rel="noopener">Stripe's age rule</a>).</p>
+        <p>Studio 7 is the name you work under. Your dad is the contracting party.</p>
+        <h4>Set it up</h4>
+        <ol>
+          <li>Your dad opens an invoicing account in his name. Square Invoices has a free plan in the US with unlimited invoices and deposits (<a href="https://square.com/us/en/invoices/pricing" target="_blank" rel="noopener">Square's pricing</a>). Check the current terms when you sign up.</li>
+          <li>Send yourself or your dad a test invoice so you've seen what a customer sees. Don't charge it.</li>
+          <li>Decide how fees are handled. On the free plan, a card payment on an invoice costs 3.3% plus 30 cents. That's about $16.80 on a $500 invoice and $33.30 on $1,000. The simplest choice is to treat it as a cost of doing business and leave your prices as they are.</li>
+        </ol>
+        <h4>Payment rules</h4>
+        <ul>
+          <li>50% deposit before work starts. 50% before you hand over.</li>
+          <li>Every payment goes through an invoice, so there's a record.</li>
+          <li>A receipt for every payment. No cash without one.</li>
+          <li>Pick your refund rule before the first sale. A common one: the deposit is non-refundable once work starts.</li>
+          <li>One folder per customer: signed agreement, intake form, approval email, invoices, handoff checklist, owner's guide.</li>
+        </ul>
+        <div class="note">This isn't legal or tax advice. Your dad should check whether a Washington business license or local registration is needed, and how the income is reported for taxes.</div>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">1.4</span><span class="s-title"><b>Set up your business email</b><span class="s-line">A separate address used only for Studio 7.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>Create a new free email account just for the business. Keep your personal one for personal things.</li>
+          <li>Pick a plain name. Something like studio7web or finn.studio7. If it's taken, add a word, not a string of numbers.</li>
+          <li>Turn on two-step verification and set your dad's phone as the recovery option. Never share the password with anyone else.</li>
+          <li>Add a signature: your name, Studio 7, and your website link once it's live.</li>
+          <li>Make two labels: Prospects and Customers.</li>
+          <li>Use this address for everything: pitches, customers, your GitHub account, the invoicing account's customer contact.</li>
+        </ol>
+        <p>Later, once you have your own domain, you can add an address on it, such as hello@yourdomain. That's optional and it can wait until after your first sale.</p>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">1.5</span><span class="s-title"><b>Your process, pitch to delivery</b><span class="s-line">Eight steps. Know them before you start.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>Find prospects (you)</li>
+          <li>Make a concept preview (you)</li>
+          <li>Send the pitch (you)</li>
+          <li>Sign and deposit (your dad signs, the owner pays 50%)</li>
+          <li>Build and check (you)</li>
+          <li>Approval and final payment (the owner)</li>
+          <li>Hand over (you and the owner)</li>
+          <li>Close out (you)</li>
+        </ol>
+        <p>Part 3 has the details for each step. Write the list on one page, put it in your folder, and be able to say it from memory.</p>
+        <div class="note">A rule that makes this work: you never skip a step because a customer is in a hurry. The order is what protects you.</div>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">1.6</span><span class="s-title"><b>Your paperwork</b><span class="s-line">Six documents, saved before you need them.</span></span></summary>
+      <div class="body wide">
+        <p>Make a Google Drive folder called Studio 7 and share it with your dad. Copy each template into its own document, fill in what you can now, and save it.</p>
+        <div class="tpl">
+
+          <details>
+            <summary><span class="s-title"><b>Customer intake form</b><span class="s-line">Send after the deposit clears.</span></span></summary>
+            <div class="body"><div class="codebox"><button type="button" class="btn btn--secondary copy" data-copy="tplIntake">Copy</button>
+<pre id="tplIntake">CUSTOMER INTAKE FORM
+
+1. Business name, address, phone, and the email you want on the site
+2. Hours, including holidays and any seasonal changes
+3. What you offer (menu, services, prices), in a document or Sheet
+4. Photos and a logo you own and are happy to use, or a note that you have none
+5. Instagram and other links to include
+6. Three words for how the site should feel
+7. Anything that must not appear on the site
+8. Who will update the site after launch
+9. Domain name, if you already own one</pre></div></div>
+          </details>
+
+          <details>
+            <summary><span class="s-title"><b>Project agreement outline</b><span class="s-line">Have your dad review it before anyone signs.</span></span></summary>
+            <div class="body"><div class="codebox"><button type="button" class="btn btn--secondary copy" data-copy="tplAgreement">Copy</button>
+<pre id="tplAgreement">PROJECT AGREEMENT (OUTLINE)
+
+1. Parties: [parent name], doing business as Studio 7, and [customer]
+2. Package, price, and what is included and excluded
+3. Schedule: intake date and delivery date
+4. Revision rounds and what counts as one
+5. Payment: 50% deposit, 50% before transfer, refund rule
+6. Ownership: the customer owns the site after the final payment
+7. Customer responsibilities: accurate content, rights to photos and text, owning their accounts
+8. The 30-day fix window and what it covers
+9. Not included: ongoing maintenance, new features, third-party service outages
+10. Signatures and dates</pre></div></div>
+          </details>
+
+          <details>
+            <summary><span class="s-title"><b>Owner's guide template</b><span class="s-line">Fill in one per customer.</span></span></summary>
+            <div class="body"><div class="codebox"><button type="button" class="btn btn--secondary copy" data-copy="tplGuide">Copy</button>
+<pre id="tplGuide"># [Business name] website: owner's guide
+
+## What you own
+Domain, hosting, [Sheet/Calendar]: where each lives and who to contact.
+
+## How to make a change
+One task per page, with screenshots. Example: change a price.
+
+## How long changes take
+[Tested number]
+
+## Never change these
+Column headers, tab names, column order.
+
+## If something looks wrong
+1. Check your headers match the sample row.
+2. Wait a few minutes and refresh.
+3. Contact [hosting support and details].
+
+## Asking for help
+Fix window ends [date]. After that, changes are quoted before work starts.</pre></div></div>
+          </details>
+
+          <details>
+            <summary><span class="s-title"><b>Claude prompt for concept previews</b><span class="s-line">Same starting point every time.</span></span></summary>
+            <div class="body"><div class="codebox"><button type="button" class="btn btn--secondary copy" data-copy="tplPrompt">Copy</button>
+<pre id="tplPrompt">Build a single-page concept preview website as one self-contained HTML file.
+
+Business: [name]
+Type: [restaurant / food truck / other]
+Facts I've confirmed: [address, phone, hours, menu]
+
+Rules:
+- Use only the facts above. Don't invent hours, prices, menu items, awards, or reviews.
+- If something is missing, write [CONFIRM] in its place.
+- Use placeholder images, not real photos.
+- Put a visible banner at the top: "Concept preview, not a live website".
+- Design for phones first, then scale up.
+- Keep the look simple and warm, matching the business type.
+- At the end, list every assumption you made.</pre></div></div>
+          </details>
+
+          <details>
+            <summary><span class="s-title"><b>Prospect tracker columns</b><span class="s-line">Paste into a Google Sheet.</span></span></summary>
+            <div class="body"><div class="codebox"><button type="button" class="btn btn--secondary copy" data-copy="tplTracker">Copy</button>
+<pre id="tplTracker">Business	Type	What I found	Contacted	Response	Next step
+Example Taco Truck	Food truck	Active Instagram, no website	Nov 10	Interested	Send preview</pre></div></div>
+          </details>
+
+          <details>
+            <summary><span class="s-title"><b>Package one-pager</b><span class="s-line">One page to attach to your pitch.</span></span></summary>
+            <div class="body">
+              <p>Make a one-page PDF with the three packages from section 1.2. Add three lines at the bottom:</p>
+              <ul>
+                <li>What's included in every package</li>
+                <li>What's never included</li>
+                <li>Who owns the site after the final payment</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </details></li>
+
+  </ol>
+
+  <h3 class="subhead" id="p1-rules">Six rules you don't break</h3>
+  <div class="rules">
+    <div class="rule">Never send the website file before there's a signed deal. Send a PDF or screenshots.</div>
+    <div class="rule">Your dad signs the agreement and receives the money. You run the business and do the work.</div>
+    <div class="rule">50% before you start. 50% before you hand over.</div>
+    <div class="rule">The owner owns the domain, hosting, Sheet and Calendar, all in their name.</div>
+    <div class="rule">Check every fact before the owner sees it. AI makes confident mistakes.</div>
+    <div class="rule">30-day fix window for things you got wrong. After that, new work is quoted.</div>
+  </div>
+
+  <div class="card gate" id="p1-ready">
+    <h3>Part 1 is done when</h3>
+    <div class="count"><span class="n">0 of 9 done</span><button type="button" class="btn btn--secondary reset">Reset</button></div>
+    <div class="progress"><i></i></div>
+    <ul class="checks" data-key="p1-ready">
+      <li><label><input type="checkbox"><span>I can say what Studio 7 does in 20 seconds</span></label></li>
+      <li><label><input type="checkbox"><span>Prices are written down and my dad agrees with them</span></label></li>
+      <li><label><input type="checkbox"><span>My dad has agreed to be the contracting party</span></label></li>
+      <li><label><input type="checkbox"><span>The invoicing account is set up in my dad's name</span></label></li>
+      <li><label><input type="checkbox"><span>My business email exists, has two-step verification, and my dad has recovery</span></label></li>
+      <li><label><input type="checkbox"><span>My Studio 7 folder has all six documents</span></label></li>
+      <li><label><input type="checkbox"><span>My dad has read the agreement outline</span></label></li>
+      <li><label><input type="checkbox"><span>My dad has checked the business license and tax question</span></label></li>
+      <li><label><input type="checkbox"><span>I can list the eight steps from memory</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PART 2 ================= -->
+<section id="part2" class="part">
+  <p class="eyebrow">Part 2</p>
+  <h2>Set up your shop</h2>
+  <p class="sub">Build your own site and three demo sites, then put them online. This is your practice run and your proof.</p>
+  <div class="jump" aria-label="In this part">
+    <a href="#p2-list">Four sections</a>
+    <a href="#p2-ready">Ready check</a>
+  </div>
+  <div class="toolbar"><button type="button" class="btn btn--secondary" data-toggle="p2-list">Open all</button></div>
+
+  <ol class="steps" id="p2-list">
+
+    <li><details>
+      <summary><span class="num">2.1</span><span class="s-title"><b>Build Studio 7's own site</b><span class="s-line">One page, built the way you'll build for customers.</span></span></summary>
+      <div class="body wide">
+        <p>Owners will check whether you have a website. Build it as a Starter-level page and run your build check on it before it goes live.</p>
+        <h4>What goes on it</h4>
+        <ul>
+          <li>One sentence at the top about what Studio 7 does and for whom</li>
+          <li>A main button: "Get a free concept preview"</li>
+          <li>The three packages with prices</li>
+          <li>Links to your demo sites, each labeled as a sample</li>
+          <li>A short FAQ: what's editable, who owns the site, what the 30-day window covers</li>
+          <li>Your business email as a link that opens a new message</li>
+        </ul>
+        <p>Use an email link instead of a contact form. A form on a static site needs an outside service to deliver the messages, and you don't need that yet.</p>
+        <div class="codebox"><button type="button" class="btn btn--secondary copy" data-copy="promptSite">Copy</button>
+<pre id="promptSite">Build a single-page website for Studio 7 as one self-contained HTML file. Studio 7 is a one-person business that builds websites for local small businesses that don't have one.
+
+Facts: [my business email, the area I work in, the three packages and prices]
+
+Rules:
+- Use only the facts above. Don't invent clients, testimonials, awards, or results.
+- Top of the page: one sentence saying what Studio 7 does and for whom.
+- Main button: "Get a free concept preview". It opens an email to [my business email].
+- Show the three packages with prices and what's included.
+- Add a short FAQ: what the owner can edit, who owns the site, what the 30-day fix window covers.
+- Link to the three demo sites and label each "Sample, fictional business".
+- Design for phones first. Keep it simple.
+- At the end, list every assumption you made.</pre></div>
+        <div class="note">No fake testimonials or made-up client logos. When a real customer is happy, ask for a quote in writing and add it then.</div>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">2.2</span><span class="s-title"><b>Build three demo sites</b><span class="s-line">Fictional businesses, one for each package.</span></span></summary>
+      <div class="body wide">
+        <p>Demos show owners what they'd get, and building them is how you learn the process before it costs you anything. Make one at each level so your site shows the whole ladder.</p>
+        <div class="demos">
+          <div class="demo"><span class="tier">Premium demo</span><b>A taco truck</b><p>Menu in a Google Sheet, daily location in a Google Calendar. Edit both and watch the site change.</p></div>
+          <div class="demo"><span class="tier">Pro demo</span><b>A barbershop</b><p>Home, services and prices, about, contact. Four pages.</p></div>
+          <div class="demo"><span class="tier">Starter demo</span><b>A neighborhood bakery</b><p>One page: hours, map, a few placeholder photos.</p></div>
+        </div>
+        <h4>Rules for demos</h4>
+        <ul>
+          <li>Invent the business. Search the name first to make sure it isn't a real business near you.</li>
+          <li>Use made-up details: an address like 123 Sample Street and a phone number from 555-0100 to 555-0199, which the US sets aside for fiction.</li>
+          <li>Put a visible banner on every page: "Sample site for a fictional business."</li>
+          <li>Use placeholder images, or images you made. No photos of real places or people.</li>
+          <li>For the taco truck, create the Sheet and Calendar yourself and test an edit. This is how you learn Premium.</li>
+          <li>Run your build check on each demo.</li>
+        </ul>
+        <div class="codebox"><button type="button" class="btn btn--secondary copy" data-copy="promptDemo">Copy</button>
+<pre id="promptDemo">Build a single-page sample website as one self-contained HTML file for a fictional business.
+
+Business: [made-up name]
+Type: [food truck / barbershop / bakery]
+Made-up facts: [address like 123 Sample Street, phone 555-0123, hours, menu or services]
+
+Rules:
+- Use only the facts above. Don't use real business names, real addresses, or real people.
+- Put a visible banner at the top: "Sample site for a fictional business".
+- Use placeholder images, not photos of real places or people.
+- Design for phones first, then scale up.
+- Keep the look simple and warm, matching the business type.
+- At the end, list every assumption you made.</pre></div>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">2.3</span><span class="s-title"><b>Pick your URL</b><span class="s-line">Short, easy to say, bought by your dad.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>Write a short list of names you like. The name Studio 7 may be taken, so have versions that add a word, such as studio7web or studio7sites. Check availability before you get attached.</li>
+          <li>Prefer a .com. Skip hyphens and numbers beyond the 7.</li>
+          <li>The phone test: if you say it out loud once, could someone type it correctly?</li>
+          <li>Search the name online to make sure another business isn't already using it.</li>
+          <li>Your dad buys it at a domain registrar, in his name. Look at the renewal price and not just the first-year price. A .com is typically about $10 to $20 a year (approximate).</li>
+          <li>Turn on auto-renew. Your dad keeps the registrar login.</li>
+        </ol>
+        <p>If you don't have the domain yet, launch anyway on the free GitHub address and add the domain later.</p>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">2.4</span><span class="s-title"><b>Launch on GitHub Pages</b><span class="s-line">Free hosting. About an hour, plus waiting for DNS.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>Create a GitHub account with your business email. GitHub requires users to be at least 13 (<a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service" target="_blank" rel="noopener">GitHub's terms</a>).</li>
+          <li>Create a new public repository. Add your site as <code>index.html</code> in the main folder, and each demo in its own folder, such as <code>demos/taco-truck/index.html</code>. Commit to <code>main</code>.</li>
+          <li>Open the repository's Settings, then Pages. Set the source to "Deploy from a branch", pick <code>main</code> and the root folder, and save. In a few minutes the site is live at a github.io address.</li>
+          <li>To use your own domain, add it in Settings, then Pages, first. Do this before you change any DNS records, or someone else could claim it.</li>
+          <li>At your registrar's DNS settings, remove the default records, then add four A records for the main domain: 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153. Add a CNAME record for <code>www</code> that points to your <code>username.github.io</code> address.</li>
+          <li>Wait. DNS can take up to 24 hours. When the option appears, tick "Enforce HTTPS".</li>
+          <li>Don't use wildcard DNS records. GitHub warns they create a takeover risk.</li>
+          <li>Test on your phone and your laptop: every link, every demo, the email button.</li>
+        </ol>
+        <div class="note">GitHub changes its screens now and then. The <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site" target="_blank" rel="noopener">official custom domain guide</a> is the source if something looks different. GitHub Pages sites are public, so don't put anything private in the repository.</div>
+      </div>
+    </details></li>
+
+  </ol>
+
+  <div class="card gate" id="p2-ready">
+    <h3>Ready check</h3>
+    <div class="count"><span class="n">0 of 8 done</span><button type="button" class="btn btn--secondary reset">Reset</button></div>
+    <div class="progress"><i></i></div>
+    <ul class="checks" data-key="p2-ready">
+      <li><label><input type="checkbox"><span>Studio 7's site is live at my URL</span></label></li>
+      <li><label><input type="checkbox"><span>It loads on my phone and my laptop</span></label></li>
+      <li><label><input type="checkbox"><span>The email button opens a message to my business address</span></label></li>
+      <li><label><input type="checkbox"><span>All three demos are live, and each says it's a fictional sample</span></label></li>
+      <li><label><input type="checkbox"><span>On the taco truck demo, editing the Sheet and Calendar changes the site</span></label></li>
+      <li><label><input type="checkbox"><span>I ran the build check on all four sites</span></label></li>
+      <li><label><input type="checkbox"><span>I sent a test invoice and saw what a customer sees</span></label></li>
+      <li><label><input type="checkbox"><span>My dad has looked at all four sites</span></label></li>
+    </ul>
+    <div class="note">Every box ticked means you can start contacting customers. Not before.</div>
+  </div>
+</section>
+
+<!-- ================= PART 3 ================= -->
+<section id="part3" class="part">
+  <p class="eyebrow">Part 3</p>
+  <h2>Run the business</h2>
+  <p class="sub">The same eight steps for every customer. Tap a step for the details.</p>
+  <div class="jump" aria-label="In this part">
+    <a href="#p3-list">The 8 steps</a>
+    <a href="#pitch">The pitch</a>
+    <a href="#checklists">Checklists</a>
+    <a href="#guide">Owner's guide</a>
+  </div>
+  <div class="toolbar"><button type="button" class="btn btn--secondary" data-toggle="p3-list">Open all</button></div>
+
+  <ol class="steps" id="p3-list">
+
+    <li><details>
+      <summary><span class="num">1</span><span class="s-title"><b>Find prospects</b><span class="s-line">Good reviews, no website, still active.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>Search Google Maps near you for restaurants and food trucks with no website listed.</li>
+          <li>Check they're active: recent Instagram posts or recent reviews.</li>
+          <li>Add each one to your prospect tracker.</li>
+        </ol>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">2</span><span class="s-title"><b>Make the concept preview</b><span class="s-line">90 minutes max. PDF or screenshots only.</span></span></summary>
+      <div class="body">
+        <p>Build it on your computer as an HTML file. Save it as a PDF or screenshots. The HTML file stays with you.</p>
+        <ul>
+          <li>Use facts only: name, address, hours, menu, phone.</li>
+          <li>Don't copy reviews from Yelp or Google.</li>
+          <li>Use placeholder images, or the owner's own photos if the preview goes only to the owner. Never post it anywhere.</li>
+          <li>Put "Concept preview, not a live website" on every page.</li>
+          <li>Don't use their logo yet. Don't say they hired you.</li>
+        </ul>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">3</span><span class="s-title"><b>Send the pitch</b><span class="s-line">Short, specific, easy to say no to.</span></span></summary>
+      <div class="body">
+        <p>Use the message in the pitch section below. Send it from your business email by direct message, or visit a public business during a quiet hour.</p>
+        <p>You don't have to open with your age, but never hide it. A parent being involved is a good sign to most owners.</p>
+        <div class="note">Safety: tell a parent where you're going. Never go to anyone's home.</div>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">4</span><span class="s-title"><b>Sign and get the deposit</b><span class="s-line">Agreement first. 50% before any work.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>Send the agreement. Your dad signs it.</li>
+          <li>Send an invoice for 50% from the account in your dad's name.</li>
+          <li>When it clears, send the intake form and give a delivery date.</li>
+        </ol>
+        <p>Don't start building before the deposit clears.</p>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">5</span><span class="s-title"><b>Build and check</b><span class="s-line">Intake form first. Build check before the owner sees it.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>Build with Claude from the intake form. If it disagrees with a public page, the owner's answer wins.</li>
+          <li>Run the build check below, line by line, on your own phone.</li>
+          <li>Send round one. Ask for one combined list of changes.</li>
+          <li>Make the changes. Pro and Premium get a second round.</li>
+        </ol>
+        <p>Common AI mistakes: wrong hours, a digit off in the phone number, invented menu items, fake testimonials.</p>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">6</span><span class="s-title"><b>Approval and final payment</b><span class="s-line">Written approval, then the other 50%.</span></span></summary>
+      <div class="body">
+        <ul>
+          <li>Get approval in writing. An email that says "approved" is enough.</li>
+          <li>Send the invoice for the remaining 50%.</li>
+          <li>The owner owns the site only after this payment clears. Send a receipt.</li>
+        </ul>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">7</span><span class="s-title"><b>Hand over</b><span class="s-line">Their accounts, a live test, a walkthrough, the guide.</span></span></summary>
+      <div class="body">
+        <ol>
+          <li>The owner creates the domain and hosting accounts with their own email and card. You walk them through it. Never ask for passwords. They invite you as a collaborator if you need access.</li>
+          <li>For Premium, the owner creates the Sheet or Calendar. The site reads from it. They own it.</li>
+          <li>Put the site live and test one edit: change a menu item and watch it show up.</li>
+          <li>Remove yourself from every account.</li>
+          <li>Do a 30 to 45 minute walkthrough where the owner makes a real edit themselves.</li>
+          <li>Send the owner's guide as a PDF. Keep a copy.</li>
+        </ol>
+        <p>Then the 30-day fix window starts. Say it out loud and put it in the guide.</p>
+      </div>
+    </details></li>
+
+    <li><details>
+      <summary><span class="num">8</span><span class="s-title"><b>Close out</b><span class="s-line">Finish the folder, check in once, ask for a quote.</span></span></summary>
+      <div class="body">
+        <ul>
+          <li>Make sure the customer folder is complete and the fix window end date is written down.</li>
+          <li>Check in once, around day 25, to ask if anything looks off.</li>
+          <li>If they're happy, ask for a short written quote you can put on your site. Only use it with their permission.</li>
+          <li>After the window ends, new work is a priced change request.</li>
+        </ul>
+      </div>
+    </details></li>
+
+  </ol>
+
+  <h3 class="subhead" id="pitch">The pitch</h3>
+  <p class="sub">Send this from your business email with the concept preview attached as a PDF.</p>
+  <div class="codebox">
+    <button type="button" class="btn btn--secondary copy" data-copy="pitchText">Copy</button>
+<pre id="pitchText">Hi, I'm Finn. I build websites for local businesses. I noticed [Business] doesn't have one yet, so I made a quick concept of what yours could look like. It's attached as a PDF.
+
+If you like the direction, I can build the real thing, set it up in your name, and show you how to update it yourself. No pressure either way.</pre>
+  </div>
+  <div class="qa">
+    <details><summary>"I already have Instagram."</summary><div class="body">That's great for followers. A website is where people check your hours and menu before they visit.</div></details>
+    <details><summary>"That's too much money."</summary><div class="body">The Starter is $500 for one clean page. Want me to quote that instead?</div></details>
+    <details><summary>"I'll think about it."</summary><div class="body">Of course. I'll keep the concept for two weeks. Want me to check in then?</div></details>
+    <details><summary>"My cousin could do it."</summary><div class="body">Maybe so. I'd want to be sure it's finished and handed over with instructions. That's what you get from me.</div></details>
+    <details><summary>"How would I update it?"</summary><div class="body">Be exact. Premium: through a Google Sheet or Calendar. Starter and Pro: you order a change from me, quoted up front.</div></details>
+  </div>
+
+  <h3 class="subhead" id="checklists">Checklists</h3>
+  <p class="sub">Tick as you go. Ticks are saved in this browser only.</p>
+  <div class="lists">
+
+    <div class="card">
+      <h3>Build check</h3>
+      <div class="count"><span class="n">0 of 12 done</span><button type="button" class="btn btn--secondary reset">Reset</button></div>
+      <div class="progress"><i></i></div>
+      <ul class="checks" data-key="s7-build">
+        <li><label><input type="checkbox"><span>Business name spelled correctly everywhere</span></label></li>
+        <li><label><input type="checkbox"><span>Address, phone and email match the intake form</span></label></li>
+        <li><label><input type="checkbox"><span>Hours match the intake form, not an old post</span></label></li>
+        <li><label><input type="checkbox"><span>Menu items and prices come from the owner, nothing invented</span></label></li>
+        <li><label><input type="checkbox"><span>No made-up testimonials or awards</span></label></li>
+        <li><label><input type="checkbox"><span>Every link opens the right place</span></label></li>
+        <li><label><input type="checkbox"><span>Email or contact button works and the message arrives</span></label></li>
+        <li><label><input type="checkbox"><span>Map points to the right location</span></label></li>
+        <li><label><input type="checkbox"><span>Photos are the owner's or placeholders, and fit the business</span></label></li>
+        <li><label><input type="checkbox"><span>Looks right on a phone and a laptop</span></label></li>
+        <li><label><input type="checkbox"><span>Read aloud once for typos</span></label></li>
+        <li><label><input type="checkbox"><span>Premium: edit a Sheet row or Calendar event and the site updates</span></label></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Handoff check</h3>
+      <div class="count"><span class="n">0 of 11 done</span><button type="button" class="btn btn--secondary reset">Reset</button></div>
+      <div class="progress"><i></i></div>
+      <ul class="checks" data-key="s7-handoff">
+        <li><label><input type="checkbox"><span>Owner approved the site in writing</span></label></li>
+        <li><label><input type="checkbox"><span>Final payment received, receipt sent</span></label></li>
+        <li><label><input type="checkbox"><span>Domain registered in the owner's name</span></label></li>
+        <li><label><input type="checkbox"><span>Hosting account in the owner's name, billed to the owner</span></label></li>
+        <li><label><input type="checkbox"><span>Sheet or Calendar created and owned by the owner</span></label></li>
+        <li><label><input type="checkbox"><span>Site live, and a live test edit worked</span></label></li>
+        <li><label><input type="checkbox"><span>I'm removed from all accounts</span></label></li>
+        <li><label><input type="checkbox"><span>Walkthrough done, owner made one edit</span></label></li>
+        <li><label><input type="checkbox"><span>Owner's guide sent, copy saved</span></label></li>
+        <li><label><input type="checkbox"><span>30-day fix window end date written down</span></label></li>
+        <li><label><input type="checkbox"><span>Customer folder complete</span></label></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h3 class="subhead" id="guide">The owner's guide</h3>
+  <p class="sub">This is what lets you walk away.</p>
+  <div class="two">
+    <div class="card">
+      <h3>Why it matters</h3>
+      <p>Without a guide, every question is a text to you. With one, the owner has the answer at 9 PM on a Sunday when you're not around.</p>
+      <p style="margin:0">It's the difference between selling a website and selling a website you have to keep supporting.</p>
+    </div>
+    <div class="card">
+      <h3>What goes in it</h3>
+      <ul>
+        <li>Where to edit: the exact link and tab</li>
+        <li>The common changes, one per page, with screenshots</li>
+        <li>How long a change takes to show (test it first)</li>
+        <li>What never to touch: column headers, tab names, column order</li>
+        <li>What to do if something looks wrong, and who to call</li>
+        <li>Who owns what</li>
+        <li>How to ask you for a change, and when the fix window ends</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">Test it first. Hand the guide to someone who's never seen the site and ask them to change a price using only the guide. Fix every spot where they get stuck. Save it as a PDF in the customer's folder.</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Studio 7 playbook. Not legal or tax advice.</div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  // Theme toggle: follows the system until the visitor picks one
+  var themeBtn = document.getElementById('themeToggle');
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
+  function effective() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'light' || t === 'dark') return t;
+    return mq && mq.matches ? 'light' : 'dark';
+  }
+  function syncThemeLabel() {
+    var next = effective() === 'dark' ? 'light' : 'dark';
+    themeBtn.textContent = next === 'light' ? 'Light theme' : 'Dark theme';
+    themeBtn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+  }
+  themeBtn.addEventListener('click', function () {
+    var next = effective() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('studio7-theme', next); } catch (e) {}
+    syncThemeLabel();
+  });
+  if (mq && mq.addEventListener) mq.addEventListener('change', syncThemeLabel);
+  syncThemeLabel();
+
+  // Open / close all in a list
+  Array.prototype.forEach.call(document.querySelectorAll('button[data-toggle]'), function (btn) {
+    var list = document.getElementById(btn.getAttribute('data-toggle'));
+    if (!list) return;
+    var items = list.querySelectorAll(':scope > li > details');
+    btn.addEventListener('click', function () {
+      var anyClosed = Array.prototype.some.call(items, function (d) { return !d.open; });
+      Array.prototype.forEach.call(items, function (d) { d.open = anyClosed; });
+      btn.textContent = anyClosed ? 'Close all' : 'Open all';
+    });
+  });
+
+  // Copy buttons
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('button.copy'), function (btn) {
+    btn.addEventListener('click', function () {
+      var target = document.getElementById(btn.getAttribute('data-copy'));
+      if (!target) return;
+      var text = target.textContent;
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = old; }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+      } else {
+        fallbackCopy(text);
+        done();
+      }
+    });
+  });
+
+  // Checklists with saved ticks
+  function load(key) {
+    try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { return []; }
+  }
+  function save(key, arr) {
+    try { localStorage.setItem(key, JSON.stringify(arr)); } catch (e) {}
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.checks'), function (list) {
+    var key = list.getAttribute('data-key');
+    var card = list.closest('.card');
+    var boxes = list.querySelectorAll('input[type=checkbox]');
+    var bar = card.querySelector('.progress > i');
+    var label = card.querySelector('.n');
+    var reset = card.querySelector('.reset');
+    var saved = load(key);
+
+    function update() {
+      var done = 0, ticked = [];
+      Array.prototype.forEach.call(boxes, function (b, i) {
+        if (b.checked) { done++; ticked.push(i); }
+      });
+      label.textContent = done + ' of ' + boxes.length + ' done';
+      bar.style.width = (boxes.length ? (done / boxes.length) * 100 : 0) + '%';
+      save(key, ticked);
+    }
+    Array.prototype.forEach.call(boxes, function (b, i) {
+      b.checked = saved.indexOf(i) !== -1;
+      b.addEventListener('change', update);
+    });
+    reset.addEventListener('click', function () {
+      Array.prototype.forEach.call(boxes, function (b) { b.checked = false; });
+      update();
+    });
+    update();
+  });
+
+  // Highlight the current part in the top bar
+  var links = document.querySelectorAll('.chapters a');
+  var sections = [];
+  Array.prototype.forEach.call(links, function (a) {
+    var s = document.querySelector(a.getAttribute('href'));
+    if (s) sections.push({ a: a, s: s });
+  });
+  function markCurrent() {
+    var y = window.scrollY + 140, cur = null;
+    sections.forEach(function (x) { if (x.s.offsetTop <= y) cur = x; });
+    sections.forEach(function (x) {
+      if (x === cur) x.a.setAttribute('aria-current', 'step'); else x.a.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('scroll', markCurrent, { passive: true });
+  markCurrent();
+})();
+</script>
+</body>
+</html>
