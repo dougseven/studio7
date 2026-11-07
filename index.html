@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio 7 | Websites for businesses that don't have one yet</title>
+<meta name="description" content="Studio 7 builds real websites for small businesses. Send your business name, get a free demo, and own the site if you like it. Packages from $750.">
+<meta property="og:title" content="Studio 7 | Websites for small businesses">
+<meta property="og:description" content="Send your business name. Get a free demo site. If you like it, you own it. $750 Pro, $1,000 Premium.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0b0a;--bg2:#141110;--card:#1a1613;--line:#2e2722;--ink:#f2eadf;--mute:#a89c8c;--acc:#cf8a4b;--acc-ink:#140d07;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:600}
+h1,h2,h3{font-weight:400;line-height:1.04}
+h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,5.4vw,64px);letter-spacing:-.01em}
+h2 em,h1 em{font-style:italic;color:var(--acc)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:transform .15s,background .15s,border-color .15s}
+.btn.p{background:var(--acc);color:var(--acc-ink)}
+.btn.p:hover{transform:translateY(-2px);background:#e09c5e}
+.btn.g{border-color:var(--line);color:var(--ink);background:transparent}
+.btn.g:hover{border-color:var(--mute)}
+section{padding:112px 0;position:relative}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(13,11,10,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.05)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:19px;letter-spacing:-.01em}
+.logo b{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--acc);color:var(--acc-ink);font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;line-height:1;padding-top:3px}
+.links{display:flex;gap:30px;align-items:center}
+.links a:not(.btn){text-decoration:none;color:var(--mute);font-size:15px}
+.links a:not(.btn):hover{color:var(--ink)}
+nav .btn{padding:10px 20px;font-size:14.5px}
+/* hero */
+.hero{padding:150px 0 100px;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;top:-220px;right:-200px;width:760px;height:760px;background:radial-gradient(closest-side,rgba(207,138,75,.17),transparent 70%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(46px,7vw,92px);letter-spacing:-.02em;margin:18px 0 26px}
+.hero p.lead{font-size:20px;color:var(--mute);max-width:520px;margin-bottom:34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.facts{display:flex;gap:26px;flex-wrap:wrap;color:var(--mute);font-size:14.5px}
+.facts span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);margin-right:9px;vertical-align:middle}
+.stack{position:relative;height:430px}
+.win{position:absolute;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.win .bar{height:30px;background:#1f1a16;display:flex;align-items:center;gap:6px;padding:0 12px}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:#3a322b}
+.win.a{width:78%;left:0;top:0;transform:rotate(-3deg)}
+.win.b{width:74%;right:0;bottom:0;transform:rotate(2.5deg)}
+.m{padding:16px}
+.m .l{height:8px;border-radius:4px;background:#332b25;margin-bottom:8px}
+.m .h{height:22px;border-radius:5px;margin-bottom:12px}
+.m .row{display:flex;gap:8px;margin-top:14px}
+.m .row div{flex:1;height:52px;border-radius:8px;background:#2a231e}
+.seven{position:absolute;right:-6px;top:-34px;font-family:'Instrument Serif',serif;font-size:200px;line-height:1;color:var(--acc);opacity:.95;z-index:3;pointer-events:none;text-shadow:0 10px 40px rgba(207,138,75,.28)}
+/* problem */
+.problem{background:var(--bg2);border-block:1px solid var(--line)}
+.problem .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.problem p{color:var(--mute);font-size:19px;margin-top:22px}
+.problem p b{color:var(--ink);font-weight:500}
+.stat{display:grid;gap:14px}
+.stat div{border:1px solid var(--line);border-radius:var(--r);padding:22px 26px;background:var(--card)}
+.stat strong{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.2}
+.stat span{color:var(--mute);font-size:15.5px}
+/* samples */
+.head{max-width:720px;margin-bottom:56px}
+.head p{color:var(--mute);margin-top:18px;font-size:19px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sample{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;transition:transform .2s,border-color .2s}
+a.sample:hover{transform:translateY(-4px);border-color:var(--acc)}
+.sample .go{display:inline-block;margin-top:18px;color:var(--acc);font-weight:600;font-size:15px}
+.sample .pv{height:260px;padding:22px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.sample .pv .tag{position:absolute;top:18px;left:22px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.75;font-weight:600}
+.sample .pv .nm{font-size:15px;font-weight:600;opacity:.9}
+.sample .pv .hl{font-size:clamp(30px,3.6vw,42px);line-height:1}
+.sample .pv .chips{display:flex;gap:8px;flex-wrap:wrap}
+.sample .pv .chips i{font-style:normal;font-size:12.5px;padding:5px 12px;border-radius:999px;font-weight:600}
+.pv.rest{background:linear-gradient(160deg,#1c130d,#2a1c12);color:#f4ead7}
+.pv.rest .hl{font-family:'Instrument Serif',serif}
+.pv.rest .hl em{color:#e3b45c}
+.pv.rest .chips i{background:rgba(227,180,92,.16);color:#e3b45c}
+.pv.truck{background:linear-gradient(160deg,#10185a,#1b2a86);color:#fff7e6}
+.pv.truck .hl{font-weight:800;letter-spacing:-.01em}
+.pv.truck .hl em{font-style:normal;color:#ffb81c}
+.pv.truck .chips i{background:#ffb81c;color:#10185a}
+.sample .info{padding:24px 26px 28px}
+.sample .tier{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:600;margin-bottom:8px}
+.sample h3{font-family:'Instrument Serif',serif;font-size:28px;margin-bottom:8px}
+.sample p{color:var(--mute);font-size:16px}
+.sample ul{list-style:none;margin-top:14px;display:grid;gap:7px;font-size:15px}
+.sample li:before{content:"\2192";color:var(--acc);margin-right:10px}
+.note{margin-top:26px;color:var(--mute);font-size:15px}
+/* steps */
+.how{background:var(--bg2);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+.step{border-top:1px solid var(--line);padding-top:26px;counter-increment:s}
+.step:before{content:"0" counter(s);font-family:'Instrument Serif',serif;font-size:60px;color:var(--acc);line-height:1;display:block;margin-bottom:14px}
+.step h3{font-size:25px;font-family:'Inter Tight',sans-serif;font-weight:600;margin-bottom:10px;letter-spacing:-.01em}
+.step p{color:var(--mute);font-size:16.5px}
+/* pricing */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px}
+.plan{border:1px solid var(--line);border-radius:var(--r);padding:36px 34px;background:var(--card);display:flex;flex-direction:column}
+.plan.hot{border-color:var(--acc);background:linear-gradient(180deg,rgba(207,138,75,.08),var(--card) 45%)}
+.plan .nm{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600;display:flex;justify-content:space-between}
+.plan .nm span{color:var(--acc)}
+.plan .pr{font-family:'Instrument Serif',serif;font-size:72px;line-height:1;margin:14px 0 4px}
+.plan .pr small{font-family:'Inter Tight',sans-serif;font-size:15px;color:var(--mute)}
+.plan .for{color:var(--mute);font-size:15.5px;margin-bottom:22px}
+.plan ul{list-style:none;display:grid;gap:11px;margin-bottom:30px;font-size:16px}
+.plan li{padding-left:28px;position:relative}
+.plan li:before{content:"";position:absolute;left:0;top:7px;width:14px;height:8px;border-left:2px solid var(--acc);border-bottom:2px solid var(--acc);transform:rotate(-45deg)}
+.plan .btn{margin-top:auto;justify-content:center}
+.own{margin-top:30px;max-width:900px;border:1px dashed var(--line);border-radius:var(--r);padding:22px 26px;color:var(--mute);font-size:16.5px}
+.own b{color:var(--ink);font-weight:600}
+/* faq */
+.faq{background:var(--bg2);border-block:1px solid var(--line)}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:19px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--acc);font-size:26px;line-height:1;transition:transform .2s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--mute);margin-top:14px;max-width:620px}
+/* contact */
+.contact{padding-bottom:120px}
+.box{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;border:1px solid var(--line);border-radius:28px;padding:56px;background:radial-gradient(900px 400px at 100% 0,rgba(207,138,75,.11),transparent 60%),var(--card)}
+.box p{color:var(--mute);margin-top:18px;font-size:18px}
+.who{display:flex;align-items:center;gap:14px;margin-top:30px}
+.av{width:52px;height:52px;border-radius:50%;background:#221c18;border:1px solid var(--line);display:grid;place-items:center;font-family:'Instrument Serif',serif;font-size:24px;color:var(--acc);overflow:hidden}
+.av img{width:100%;height:100%;object-fit:cover}
+.who b{display:block;font-weight:600;line-height:1.2}
+.who span{color:var(--mute);font-size:14.5px}
+form{display:grid;gap:14px}
+label{font-size:13.5px;color:var(--mute);display:grid;gap:7px;font-weight:500}
+input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);font:inherit;font-size:16px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--acc);outline-offset:0;border-color:transparent}
+textarea{min-height:104px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+#fmsg{font-size:15px;min-height:22px;color:var(--mute)}
+#fmsg.ok{color:var(--acc)}
+#fmsg.err{color:#ff9a7a}
+footer{border-top:1px solid var(--line);padding:36px 0 44px;color:var(--mute);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(max-width:900px){
+ section{padding:80px 0}
+ .hero{padding:118px 0 70px}
+ .hero .wrap,.problem .wrap,.grid2,.steps,.plans,.faq .wrap,.box{grid-template-columns:1fr}
+ .stack{height:340px;order:-1}
+ .seven{font-size:140px;top:-24px}
+ .links a:not(.btn){display:none}
+ .box{padding:32px 24px;gap:34px}
+ .two{grid-template-columns:1fr}
+ .problem .wrap,.faq .wrap{gap:34px}
+}
+</style>
+<script>document.documentElement.className+=' js'</script>
+</head>
+<body>
+
+<nav>
+ <div class="wrap">
+  <a class="logo" href="#top"><b>7</b>Studio 7</a>
+  <div class="links">
+   <a href="#samples">Samples</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+   <a class="btn p" href="#demo">Free demo</a>
+  </div>
+ </div>
+</nav>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <div>
+   <div class="eyebrow">Websites for small business</div>
+   <h1>Your customers are searching. <em>Give them something to find.</em></h1>
+   <p class="lead">Studio 7 builds real websites for businesses that don't have one yet. Send me your business name and I'll build you a free demo. If you like it, you own it.</p>
+   <div class="cta">
+    <a class="btn p" href="#demo">Get your free demo</a>
+    <a class="btn g" href="#pricing">See pricing</a>
+   </div>
+   <div class="facts"><span>Free demo first</span><span>$750 or $1,000, one time</span><span>You own the site</span></div>
+  </div>
+  <div class="stack" aria-hidden="true">
+   <div class="seven serif">7</div>
+   <div class="win a"><div class="bar"><i></i><i></i><i></i></div><div class="m"><div class="h" style="width:62%;background:#cf8a4b"></div><div class="l" style="width:90%"></div><div class="l" style="width:70%"></div><div class="row"><div></div><div></div><div></div></div></div></div>
+   <div class="win b"><div class="bar"><i></i><i></i><i></i></div><div class="m"><div class="h" style="width:48%;background:#8a5a34"></div><div class="l" style="width:85%"></div><div class="l" style="width:60%"></div><div class="row"><div></div><div></div></div></div></div>
+  </div>
+ </div>
+</header>
+
+<section class="problem">
+ <div class="wrap">
+  <div class="rv">
+   <div class="eyebrow">The problem</div>
+   <h2 style="margin-top:14px">No website means <em>no first impression.</em></h2>
+   <p>When someone hears about your business, the first thing they do is look you up on their phone. <b>If all they find is a map pin and a few old photos, many of them move on to the next place.</b> A simple, good-looking site fixes that.</p>
+  </div>
+  <div class="stat rv">
+   <div><strong>Hours, menu and phone in one tap</strong><span>People can see if you're open and call you without hunting around.</span></div>
+   <div><strong>Looks right on every phone</strong><span>Most visitors will see it on a small screen, so that's where I start.</span></div>
+   <div><strong>Your photos, your words</strong><span>It looks like your business, not a template with the name swapped.</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="samples">
+ <div class="wrap">
+  <div class="head rv">
+   <div class="eyebrow">Sample work</div>
+   <h2>One sample for <em>each package.</em></h2>
+   <p>These are sample sites with made-up business names, so you can see what each package includes. Your demo would use your real name, photos and details.</p>
+  </div>
+  <div class="grid2">
+   <a class="sample rv" href="demos/food-truck.html" target="_blank" rel="noopener">
+    <div class="pv truck"><span class="tag">Pro sample</span><span class="nm">Camino Azul</span><div class="hl">Tacos <em>straight</em> off the griddle.</div><div class="chips"><i>Find us today</i><i>Call</i><i>Menu</i></div></div>
+    <div class="info"><div class="tier">Pro &middot; $750</div><h3>Food truck</h3><p>Loud, colorful and clear about where you are right now. Five sections: Home, About, Menu, Gallery, Contact.</p>
+     <ul><li>Google Maps, click-to-call and social links</li><li>Contact form and basic on-page SEO</li><li>Fits phones, tablets and desktops</li></ul><span class="go">Open the Pro sample &rarr;</span></div>
+   </a>
+   <a class="sample rv" href="demos/restaurant.html" target="_blank" rel="noopener">
+    <div class="pv rest"><span class="tag">Premium sample</span><span class="nm">Hearth &amp; Broth</span><div class="hl serif">A bowl that feels <em>like home.</em></div><div class="chips"><i>Reserve</i><i>Order online</i><i>Events</i></div></div>
+    <div class="info"><div class="tier">Premium &middot; $1,000</div><h3>Sit-down restaurant</h3><p>Everything in Pro, plus eight sections built to fill tables: Home, About, Menu, Gallery, Events &amp; Promotions, Reserve, Order, Contact.</p>
+     <ul><li>Reservations through an existing service (OpenTable here)</li><li>Online ordering through an existing provider (Toast here)</li><li>Promotions and events, expanded gallery, enhanced menu</li></ul><span class="go">Open the Premium sample &rarr;</span></div>
+   </a>
+  </div>
+  <p class="note">Tap a card to open the full sample site. Reservation, ordering and contact-form buttons run in demo mode, so nothing is sent or booked.</p>
+ </div>
+</section>
+
+<section class="how" id="how">
+ <div class="wrap">
+  <div class="head rv"><div class="eyebrow">How it works</div><h2>Three steps. <em>You pay last.</em></h2></div>
+  <div class="steps">
+   <div class="step rv"><h3>Send your business name</h3><p>Fill out the short form below with your business name and a link to your Google Maps or Instagram page. That's all I need to start.</p></div>
+   <div class="step rv"><h3>Get a free demo</h3><p>I build a demo site for your business and send you the link. You look at it on your phone, tell me what to change, and decide.</p></div>
+   <div class="step rv"><h3>Like it? It's yours</h3><p>Pick Pro or Premium, pay once, and I launch it. You own the site. If it's not for you, you owe nothing.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="pricing">
+ <div class="wrap">
+  <div class="head rv"><div class="eyebrow">Pricing</div><h2>Two packages. <em>One price each.</em></h2></div>
+  <div class="plans">
+   <div class="plan rv">
+    <div class="nm">Pro</div>
+    <div class="pr">$750 <small>one time</small></div>
+    <div class="for">A complete 4 to 5 section site. Ready 3 to 5 business days after I get your content.</div>
+    <ul><li>4 to 5 sections: Home, About, Menu or Services, Gallery, Contact</li><li>Custom design using your branding</li><li>Mobile, tablet and desktop</li><li>Google Maps and location integration</li><li>Click-to-call and social media links</li><li>Contact form</li><li>Basic on-page SEO setup</li><li>2 rounds of revisions</li></ul>
+    <a class="btn g" href="#demo">Start with a free demo</a>
+   </div>
+   <div class="plan hot rv">
+    <div class="nm">Premium <span>Most complete</span></div>
+    <div class="pr">$1,000 <small>one time</small></div>
+    <div class="for">Everything in Pro, with 6 to 8 sections. Ready 5 to 7 business days after I get your content.</div>
+    <ul><li>Everything in Pro</li><li>6 to 8 sections</li><li>More customized homepage design</li><li>Expanded photo gallery</li><li>Promotions or events page</li><li>Enhanced menu or service layout</li><li>Reservation integration</li><li>Online ordering integration</li><li>More detailed on-page SEO setup</li><li>3 rounds of revisions</li><li>Priority launch support</li></ul>
+    <a class="btn p" href="#demo">Start with a free demo</a>
+   </div>
+  </div>
+  <p class="own" style="margin-top:22px"><b>What counts as required content?</b> Your photos, menu or services list, hours and address, and your logo or brand colors. The delivery time starts once I have them.</p>
+  <div class="own rv"><b>You own the site.</b> The design, the files and the content are yours once you've paid.</div>
+ </div>
+</section>
+
+<!-- Testimonials: intentionally left out until there are real ones.
+     When you have a real customer quote, add a section here with the quote, their name and their business. -->
+
+<section class="faq" id="faq">
+ <div class="wrap">
+  <div class="rv"><div class="eyebrow">FAQ</div><h2 style="margin-top:14px">Questions <em>people ask.</em></h2></div>
+  <div class="rv">
+   <details><summary>Is the demo really free?</summary><p>Yes. I build it before you pay anything. You only pay if you want it live.</p></details>
+   <details><summary>What do I need to send you?</summary><p>Your business name and a link to your Google Maps listing or Instagram. If you have a logo, favorite photos or a menu, send those too. Everything else I can work out from there.</p></details>
+   <details><summary>Who owns the website?</summary><p>You do. Once you've paid, the design, the files and the content are yours.</p></details>
+   <details><summary>How long does it take?</summary><p>Pro takes 3 to 5 business days and Premium takes 5 to 7 business days, counted from when I receive the content I need: your photos, menu or services, hours and address, and your logo or brand colors. The free demo comes first.</p></details>
+   <details><summary>Do you work with businesses outside Seattle?</summary><p>Yes. Everything is done online, so where you are doesn't matter.</p></details>
+   <details><summary>What's the difference between Pro and Premium?</summary><p>Pro is a complete 4 to 5 section site with a custom design, Google Maps, click-to-call, social links, a contact form and basic SEO. Premium adds a more customized homepage, an expanded gallery, a promotions or events page, a better menu or service layout, reservation and online-ordering integration with services you already use, more detailed SEO, an extra round of revisions and priority launch support.</p></details>
+   <details><summary>How do reservations and online ordering work?</summary><p>Premium connects to the service you already use, such as OpenTable for reservations or Toast for ordering. Your booking and ordering still run through your own account with them, and the buttons on your site send people there. Ordering integration depends on whether your provider supports it.</p></details>
+   <details><summary>What are the rounds of revisions?</summary><p>After the demo, you send me a list of changes and I update the site. That is one round. Pro includes 2 rounds and Premium includes 3.</p></details>
+   <details><summary>Will it show up on Google?</summary><p>I set up the page title, description and structure the way search engines expect, so your business has a proper page to be found. I can't promise a ranking, because nobody can.</p></details>
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="demo">
+ <div class="wrap">
+  <div class="box">
+   <div class="rv">
+    <div class="eyebrow">Free demo</div>
+    <h2 style="margin-top:14px">Tell me about <em>your business.</em></h2>
+    <p>Send the basics and I'll reply with a demo site made for you. No payment, no pressure.</p>
+    <div class="who"><div class="av" id="av">F</div><div><b>Finn Seven</b><span>Founder, Studio 7</span></div></div>
+   </div>
+   <form id="f" class="rv" novalidate>
+    <div class="two">
+     <label>Your name<input name="name" required autocomplete="name"></label>
+     <label>Email<input type="email" name="email" required autocomplete="email"></label>
+    </div>
+    <div class="two">
+     <label>Business name<input name="business" required></label>
+     <label>Type of business<select name="type"><option>Restaurant or cafe</option><option>Food truck</option><option>Salon or barber</option><option>Shop or retail</option><option>Contractor or trades</option><option>Other</option></select></label>
+    </div>
+    <label>Google Maps or Instagram link<input name="link" placeholder="Paste a link if you have one"></label>
+    <label>Anything else I should know? (optional)<textarea name="message"></textarea></label>
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn p" type="submit" id="go" style="justify-content:center">Send me my free demo</button>
+    <div id="fmsg" role="status" aria-live="polite"></div>
+   </form>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div>&copy; <span id="yr">2026</span> Studio 7. Websites for businesses that don't have one yet.</div>
+  <div><a id="mail" href="mailto:finnseven777@gmail.com">finnseven777@gmail.com</a></div>
+ </div>
+</footer>
+
+<script>
+(function(){
+  var EMAIL='finnseven777@gmail.com';
+  // Optional: put Finn's photo here as a data URI or a hosted image URL, e.g. var PHOTO='finn.jpg';
+  var PHOTO='';
+  try{document.getElementById('yr').textContent=new Date().getFullYear();}catch(e){}
+  if(PHOTO){var av=document.getElementById('av');av.textContent='';var im=new Image();im.alt='Finn Seven';im.src=PHOTO;av.appendChild(im);}
+  // reveal
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }else{els.forEach(function(e){e.classList.add('in');});}
+  // form
+  var f=document.getElementById('f'),msg=document.getElementById('fmsg'),go=document.getElementById('go');
+  function say(t,c){msg.textContent=t;msg.className=c||'';}
+  function mailto(d){
+    var body=['Name: '+d.name,'Email: '+d.email,'Business: '+d.business,'Type: '+d.type,'Link: '+(d.link||''),'','Notes: '+(d.message||'')].join('\n');
+    location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Free demo request: '+d.business)+'&body='+encodeURIComponent(body);
+  }
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var d={};[].forEach.call(f.elements,function(x){if(x.name)d[x.name]=x.value.trim();});
+    if(d._honey)return;
+    if(!d.name||!d.business||!/^\S+@\S+\.\S+$/.test(d.email||'')){say('Please add your name, business name and a valid email.','err');return;}
+    go.disabled=true;say('Sending...');
+    var payload={name:d.name,email:d.email,business:d.business,type:d.type,link:d.link,message:d.message,_subject:'Studio 7 demo request: '+d.business,_template:'table',_captcha:'false'};
+    var done=false,to=setTimeout(function(){if(done)return;done=true;go.disabled=false;say('That took too long. Opening your email app instead.','err');mailto(d);},12000);
+    fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,j:j};});})
+    .then(function(r){
+      if(done)return;done=true;clearTimeout(to);go.disabled=false;
+      if(r.ok&&String(r.j.success)!=='false'){f.reset();say('Got it. I will email you a demo soon.','ok');}
+      else{say('The form had a problem. Opening your email app instead.','err');mailto(d);}
+    })
+    .catch(function(){if(done)return;done=true;clearTimeout(to);go.disabled=false;say('Could not send. Opening your email app instead.','err');mailto(d);});
+  });
+})();
+</script>
+</body>
+</html>
